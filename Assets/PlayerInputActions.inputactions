@@ -19,17 +19,6 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "698523e0-a88a-4c64-961b-aa06ff79a208",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Keyboard",
                     "id": "0986e1a0-145f-4f86-9eca-6c65fb3b440a",
                     "path": "2DVector",
@@ -43,7 +32,7 @@
                 {
                     "name": "up",
                     "id": "43175eaf-dbaf-40f0-88e1-a44d83b206e4",
-                    "path": "",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -54,7 +43,7 @@
                 {
                     "name": "down",
                     "id": "e724099f-9988-4496-a28f-2cbb66fac582",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -65,7 +54,7 @@
                 {
                     "name": "left",
                     "id": "c412271d-c452-42eb-b0ef-a5d8f794cc9f",
-                    "path": "",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -76,7 +65,7 @@
                 {
                     "name": "right",
                     "id": "42902ccc-1fc9-4562-9be5-0a5b2c76905e",
-                    "path": "",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
