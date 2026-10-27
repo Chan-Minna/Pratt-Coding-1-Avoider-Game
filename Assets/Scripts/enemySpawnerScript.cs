@@ -5,6 +5,8 @@ public class enemySpawnerScript : MonoBehaviour
     public GameObject enemyObject;
     public float spawnCooldown = 2;
     private float timer;
+    public float minPosition;
+    public float maxPosition;
 
     private void Start()
     {
@@ -17,8 +19,14 @@ public class enemySpawnerScript : MonoBehaviour
         if(timer >= spawnCooldown)
         {
             timer = 0;
-            Object.Instantiate(enemyObject, transform.position, transform.rotation);
+            spawnEnemy();
         }
     }
 
+    private void spawnEnemy()
+    {
+        Vector3 randomPosition = transform.position;
+        randomPosition.y = Random.Range(minPosition, maxPosition);
+        Object.Instantiate(enemyObject, randomPosition, transform.rotation);
+    }
 }
