@@ -7,6 +7,8 @@ public class enemySpawnerScript : MonoBehaviour
     private float timer;
     public float minPosition;
     public float maxPosition;
+    public float minEnemySpeed;
+    public float maxEnemySpeed;
 
     private void Start()
     {
@@ -27,6 +29,10 @@ public class enemySpawnerScript : MonoBehaviour
     {
         Vector3 randomPosition = transform.position;
         randomPosition.y = Random.Range(minPosition, maxPosition);
-        Object.Instantiate(enemyObject, randomPosition, transform.rotation);
+        GameObject enemy = Object.Instantiate(enemyObject, randomPosition, transform.rotation);
+
+        float randomEnemySpeed = Random.Range(minEnemySpeed, maxEnemySpeed);
+        enemyMovementScript enemyMovement = enemy.GetComponent<enemyMovementScript>();
+        enemyMovement.moveSpeed = randomEnemySpeed;
     }
 }
