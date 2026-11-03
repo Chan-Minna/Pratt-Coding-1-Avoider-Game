@@ -4,8 +4,8 @@ using TMPro;
 public class timerScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] TextMeshProUGUI cakeCount;
-    public cakeMovementScript cakeCollectionReference;
+    public int collectCount;
+    
     private float elapsedTime;
     public float startTime;
     private float remainingTime;
@@ -21,7 +21,7 @@ public class timerScript : MonoBehaviour
         elapsedTime += Time.deltaTime;
         remainingTime = Mathf.FloorToInt(startTime - elapsedTime);
         timerText.text = remainingTime.ToString();
-        cakeCount.text = cakeCollectionReference.collectCount.ToString();
-        //Debug.Log("ui" + cakeCollectionReference.collectCount);
+        
     }
+
 }

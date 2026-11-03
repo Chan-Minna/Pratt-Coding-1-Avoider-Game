@@ -12,6 +12,7 @@ public class mouseMovementScript : MonoBehaviour
     private bool isDragging;
     private bool isHovering;
     public timerScript timerScriptReference;
+    public scoreUI scoreUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,7 +65,8 @@ public class mouseMovementScript : MonoBehaviour
         }
         else if (other.CompareTag("Treat"))
         {
-            Debug.Log("yay");
+            other.gameObject.SetActive(false);
+            scoreUI.OnCakePickup();
         }
     }
 

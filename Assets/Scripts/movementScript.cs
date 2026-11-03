@@ -6,6 +6,7 @@ public class movementScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float moveSpeed;
+    public scoreUI scoreUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,8 @@ public class movementScript : MonoBehaviour
         }
         else if (other.CompareTag("Treat"))
         {
-            Debug.Log("yay");
+            other.gameObject.SetActive(false);
+            scoreUI.OnCakePickup();
         }
 
     }
