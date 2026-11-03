@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 803583874}
-  - component: {fileID: 803583873}
+  - component: {fileID: 803583875}
   m_Layer: 0
   m_Name: CakeSpawner01
   m_TagString: Untagged
@@ -398,24 +398,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &803583873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803583872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a767bc29ab9b39f4ca31da8db513de9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemySpawnerScript
-  enemyObject: {fileID: 3143044626546790960, guid: 85e1b48bbde734c41acd8ed31b1ca73c, type: 3}
-  spawnCooldown: 2
-  minPosition: -3
-  maxPosition: 3
-  minEnemySpeed: 7
-  maxEnemySpeed: 10
 --- !u!4 &803583874
 Transform:
   m_ObjectHideFlags: 0
@@ -431,6 +413,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803583875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803583872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ba04a1b437fbd46a71d08d72340ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cakeSpawnerScript
+  enemyObject: {fileID: 3143044626546790960, guid: 85e1b48bbde734c41acd8ed31b1ca73c, type: 3}
+  spawnCooldown: 2
+  minPosition: -3
+  maxPosition: 3
+  minEnemySpeed: 7
+  maxEnemySpeed: 10
 --- !u!1 &1387711257
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class cakeMovementScript : MonoBehaviour
         transform.position += new Vector3(-moveSpeed, 0, 0) * Time.deltaTime;
     }
 
-    public void OnTriggerEnter2D(Collider2D cother)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         gameObject.SetActive(false);
     }
