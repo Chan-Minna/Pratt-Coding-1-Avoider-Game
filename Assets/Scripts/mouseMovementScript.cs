@@ -25,7 +25,7 @@ public class mouseMovementScript : MonoBehaviour
 
         if (hover != null)
         {
-            Debug.Log("Mouse is over: " + hover.gameObject.name);
+            //Debug.Log("Mouse is over: " + hover.gameObject.name);
             if (hover.gameObject == gameObject)
             {
                 isHovering = true;
@@ -59,6 +59,10 @@ public class mouseMovementScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("Treat"))
+        {
+            Debug.Log("yay");
         }
 
     }
