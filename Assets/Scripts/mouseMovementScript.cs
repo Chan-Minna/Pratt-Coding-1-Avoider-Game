@@ -11,6 +11,7 @@ public class mouseMovementScript : MonoBehaviour
     private Vector2 playerPosition;
     private bool isDragging;
     private bool isHovering;
+    public timerScript timerScriptReference;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class mouseMovementScript : MonoBehaviour
             playerPosition = mainCamera.ScreenToWorldPoint(mousePosition);
             rb.MovePosition(playerPosition);
         }
+        TimeUp();
 
     }
 
@@ -64,7 +66,16 @@ public class mouseMovementScript : MonoBehaviour
         {
             Debug.Log("yay");
         }
+    }
 
+    private float timer = 0;
+    private void TimeUp()
+    {
+        timer += Time.deltaTime;
+        if(timer >= timerScriptReference.startTime)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }
