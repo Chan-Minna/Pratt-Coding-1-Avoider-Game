@@ -35,7 +35,7 @@ public class mouseMovementScript : MonoBehaviour
         {
             isHovering = false;
         }
-        
+
         if (isDragging && isHovering)
         {
             playerPosition = mainCamera.ScreenToWorldPoint(mousePosition);
@@ -53,4 +53,14 @@ public class mouseMovementScript : MonoBehaviour
     {
         mousePosition = input.Get<Vector2>();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+        }
+
+    }
+
 }
