@@ -5,6 +5,7 @@ public class randomSpawner : MonoBehaviour
     public GameObject spawnObject;
     private bool canSpawn;
     private BoxCollider2D spawnArea;
+    public GameObject currentSpawn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,9 +34,9 @@ public class randomSpawner : MonoBehaviour
         float randomY = Random.Range(bounds.min.y, bounds.max.y);
 
         Vector2 randomPosition = new Vector2(randomX, randomY);
-        GameObject spawn = Object.Instantiate(spawnObject, randomPosition, transform.rotation);
 
-        spawn.GetComponent<cakeClick>().randomSpawnerReference = this;
+        currentSpawn = Object.Instantiate(spawnObject, randomPosition, transform.rotation);
+        currentSpawn.GetComponent<cakeClick>().randomSpawnerReference = this;
     }
 
     public void OnPrefabDeactivated()

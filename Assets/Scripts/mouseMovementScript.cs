@@ -10,9 +10,12 @@ public class mouseMovementScript : MonoBehaviour
     private Vector2 mousePosition;
     private Vector2 playerPosition;
     private bool isHovering;
+    private bool isHoveringCake;
     public timerScript timerScriptReference;
     public scoreUI scoreUI;
     public float jumpForce;
+
+    public randomSpawner randomSpawnerReference;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,20 +34,43 @@ public class mouseMovementScript : MonoBehaviour
             {
                 isHovering = true;
             }
+            else
+            {
+                isHovering = false;
+            }
+
+            if(randomSpawnerReference.currentSpawn != null)
+            {
+                if (hover.gameObject == randomSpawnerReference.currentSpawn)
+                {
+                    isHoveringCake = true;
+                }
+                else
+                {
+                    isHoveringCake = false;
+                }
+            }
         }
         else
         {
             isHovering = false;
+            isHoveringCake = false;
         }
         TimeUp();
     }
 
     public void OnClick(InputValue input)
     {
+
         if (input.isPressed && isHovering)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if(input.isPressed && isHoveringCake)
+        {
+            randomSpawnerReference.currentSpawn.GetComponent<cakeClick>().DeactivateCake();
         }
     }
 

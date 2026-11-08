@@ -9,11 +9,9 @@ public class cakeClick : MonoBehaviour
         
     }
 
-    public void OnMouseDown()
+    public void DeactivateCake()
     {
-        Debug.Log("cake click");
         gameObject.SetActive(false);
-
         randomSpawnerReference.OnPrefabDeactivated();
     }
 }
