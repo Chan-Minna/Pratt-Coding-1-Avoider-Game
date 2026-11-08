@@ -9,10 +9,10 @@ public class mouseMovementScript : MonoBehaviour
     public Camera mainCamera;
     private Vector2 mousePosition;
     private Vector2 playerPosition;
-    private bool isDragging;
     private bool isHovering;
     public timerScript timerScriptReference;
     public scoreUI scoreUI;
+    public float jumpForce;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,6 @@ public class mouseMovementScript : MonoBehaviour
     void Update()
     {
         Collider2D hover = Physics2D.OverlapPoint(mainCamera.ScreenToWorldPoint(mousePosition));
-
         if (hover != null)
         {
             //Debug.Log("Mouse is over: " + hover.gameObject.name);
@@ -37,19 +36,16 @@ public class mouseMovementScript : MonoBehaviour
         {
             isHovering = false;
         }
-
-        if (isDragging && isHovering)
-        {
-            playerPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-            rb.MovePosition(playerPosition);
-        }
         TimeUp();
-
     }
 
     public void OnClick(InputValue input)
     {
-        isDragging = input.isPressed;
+        if (input.isPressed && isHovering)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     public void OnCursorLocation(InputValue input)
