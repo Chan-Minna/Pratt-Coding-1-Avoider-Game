@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::randomSpawner
   spawnObject: {fileID: 7553894195571740543, guid: fe74578fcd893b74786f1a3cc0e08623, type: 3}
+  currentSpawn: {fileID: 0}
 --- !u!61 &88388982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,8 +358,8 @@ Transform:
   m_GameObject: {fileID: 88388980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: -0.59, z: 0}
-  m_LocalScale: {x: 11.113926, y: 8.36913, z: 9.471695}
+  m_LocalPosition: {x: 3.08, y: -0.64, z: 0}
+  m_LocalScale: {x: 11.113926, y: 7.427603, z: 9.471695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -502,7 +503,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1387711259}
   timerScriptReference: {fileID: 2131859934}
   scoreUI: {fileID: 1187659939}
-  jumpForce: 20
+  jumpForce: 1000
+  randomSpawnerReference: {fileID: 88388981}
 --- !u!61 &172871143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -711,11 +713,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawnerScript
   enemyObject: {fileID: 3143044626546790960, guid: 6c5aacdc4959d9047a15b566f28e9b96, type: 3}
-  spawnCooldown: 0.5
+  spawnCooldown: 1
   minPosition: -3
   maxPosition: 3
-  minEnemySpeed: 2
-  maxEnemySpeed: 5
+  minEnemySpeed: 1
+  maxEnemySpeed: 3
 --- !u!4 &584512566
 Transform:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class mouseMovementScript : MonoBehaviour
     void Update()
     {
         Collider2D hover = Physics2D.OverlapPoint(mainCamera.ScreenToWorldPoint(mousePosition));
+        Collider2D cakeHover = Physics2D.OverlapPoint(mainCamera.ScreenToWorldPoint(mousePosition), LayerMask.GetMask("Treat"));
         if (hover != null)
         {
             //Debug.Log("Mouse is over: " + hover.gameObject.name);
@@ -38,10 +39,17 @@ public class mouseMovementScript : MonoBehaviour
             {
                 isHovering = false;
             }
+        }
+        else
+        {
+            isHovering = false;
+        }
 
-            if(randomSpawnerReference.currentSpawn != null)
+        if(cakeHover != null)
+        {
+            if (randomSpawnerReference.currentSpawn != null)
             {
-                if (hover.gameObject == randomSpawnerReference.currentSpawn)
+                if (cakeHover.gameObject == randomSpawnerReference.currentSpawn)
                 {
                     isHoveringCake = true;
                 }
@@ -53,9 +61,9 @@ public class mouseMovementScript : MonoBehaviour
         }
         else
         {
-            isHovering = false;
             isHoveringCake = false;
         }
+
         TimeUp();
     }
 
@@ -70,6 +78,7 @@ public class mouseMovementScript : MonoBehaviour
 
         if(input.isPressed && isHoveringCake)
         {
+            Debug.Log("clicked");
             randomSpawnerReference.currentSpawn.GetComponent<cakeClick>().DeactivateCake();
         }
     }
