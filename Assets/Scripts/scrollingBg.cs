@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class disableObject : MonoBehaviour
+public class scrollingBg : MonoBehaviour
 {
+    public float scrollSpeed;
+    public Renderer bgRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,11 +13,6 @@ public class disableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D (Collider2D other)
-    {
-        other.gameObject.SetActive(false);
+        bgRenderer.material.mainTextureOffset += new Vector2(scrollSpeed * Time.deltaTime, 0);
     }
 }
