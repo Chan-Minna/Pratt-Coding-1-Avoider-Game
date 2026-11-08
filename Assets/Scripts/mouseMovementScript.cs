@@ -13,7 +13,10 @@ public class mouseMovementScript : MonoBehaviour
     private bool isHoveringCake;
     public timerScript timerScriptReference;
     public scoreUI scoreUI;
-    public float jumpForce;
+    private float baseJumpForce = 25;
+    private float jumpReducer = 0.9f;
+    private float cakeReducer = 5.0f;
+    private int cakeCount = 0;
 
     public randomSpawner randomSpawnerReference;
 
@@ -67,20 +70,27 @@ public class mouseMovementScript : MonoBehaviour
         TimeUp();
     }
 
+    public AudioClip jumpSound;
     public void OnClick(InputValue input)
     {
-
         if (input.isPressed && isHovering)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            AudioSource.PlayClipAtPoint(jumpSound, transform.position, 5);
+            float weightCoefficient = Mathf.Floor(cakeCount / cakeReducer);
+            float jumpForce = baseJumpForce * Mathf.Pow(jumpReducer,weightCoefficient);
+            Debug.Log(jumpForce);
+
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
         if(input.isPressed && isHoveringCake)
         {
-            Debug.Log("clicked");
+            //Debug.Log("clicked");
             scoreUI.OnCakePickup();
             randomSpawnerReference.currentSpawn.GetComponent<cakeClick>().DeactivateCake();
+            cakeCount++;
+
         }
     }
 

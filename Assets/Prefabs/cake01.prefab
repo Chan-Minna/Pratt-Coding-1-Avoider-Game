@@ -590,3 +590,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cakeClick
   randomSpawnerReference: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 3a998cef28f7a7748beedf673e57f954, type: 3}
