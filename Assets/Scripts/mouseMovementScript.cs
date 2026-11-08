@@ -79,6 +79,7 @@ public class mouseMovementScript : MonoBehaviour
         if(input.isPressed && isHoveringCake)
         {
             Debug.Log("clicked");
+            scoreUI.OnCakePickup();
             randomSpawnerReference.currentSpawn.GetComponent<cakeClick>().DeactivateCake();
         }
     }
@@ -93,11 +94,6 @@ public class mouseMovementScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
-        }
-        else if (other.CompareTag("Treat"))
-        {
-            other.gameObject.SetActive(false);
-            scoreUI.OnCakePickup();
         }
     }
 

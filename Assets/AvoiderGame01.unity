@@ -503,7 +503,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1387711259}
   timerScriptReference: {fileID: 2131859934}
   scoreUI: {fileID: 1187659939}
-  jumpForce: 1000
+  jumpForce: 15
   randomSpawnerReference: {fileID: 88388981}
 --- !u!61 &172871143
 BoxCollider2D:
